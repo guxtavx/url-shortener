@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>url-shortener - Spring Boot</title>
+    <script type="application/javascript">
+        function createUrl() {
+            const url = encodeURIComponent(document.getElementById('inputUrl').value);
+            fetch(`/create-url?url=${url}`, {
+                method: "POST"
+            })
+            .then(function(res){ return res.json(); })
+            .then(function(data){
+                const newUrl = data.newUrl;
+                document.getElementById('links').innerHTML = `<a href="${newUrl}" target="_blank">${newUrl}</a>`;
+                document.getElementById('console').value = JSON.stringify(data)
+            })
+        }
+    </script>
+</head>
+<body>
+<input id="inputUrl" type="text" value="http://www.google.com" />
+<button onclick="createUrl();">Short, please!</button>
+<hr />
+<textarea id="console" style="width:100%"></textarea>
+<hr />
+<div id="links"></div>
+<hr />
+<p th:text="'Time to live (millis): ' + ${timeToLive} + ''" />
+</body>
+</html>
