@@ -4,6 +4,8 @@
 Este projeto contém endpoints que fazem o encurtamento de uma varíavel e possibilitam o redirecionamento para a URL original.
 Uma URL é mantida por um determinado tempo, até expirar. Implementado com Spring Boot. 
 
+Demo: [https://sb-url-shortener.herokuapp.com/index.html](https://sb-url-shortener.herokuapp.com/index.html)
+
 ### Requisitos
 * [Java 8+](https://www.java.com)
 * [Apache Maven](https://maven.apache.org)
