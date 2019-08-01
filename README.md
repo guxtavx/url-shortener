@@ -48,6 +48,19 @@ $ curl -v -X POST http://localhost:8080/create-url?url=http://www.google.com
 $ curl -v -L -X GET http://localhost:8080/4170157c
 ```
 
+### Docker 
+
+* Para criar a imagem docker do projeto (`springio/url-shortener:latest`), utilizar o comando abaixo:
+
+```
+$ sudo mvn clean install && sudo mvn dockerfile:build
+```
+
+* Para executar com a imagem criada, utilizar o comando abaixo:
+```
+$ sudo docker run --env EXPIRATION=60000 -p 8080:8080 -t springio/url-shortener:latest
+```
+
 ### Referência:
 
 [https://github.com/ledbruno/desafios/tree/master/1%20-%20Easy/Encurtador%20de%20URL](https://github.com/ledbruno/desafios/tree/master/1%20-%20Easy/Encurtador%20de%20URL)
